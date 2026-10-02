@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Linear Algebra AI Tutor</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+
+<!-- MathJax configuration -->
+<script>
+window.MathJax = {
+    tex: {
+        inlineMath: [
+            ['$', '$'],
+            ['\\(', '\\)']
+        ],
+        displayMath: [
+            ['$$', '$$'],
+            ['\\[', '\\]']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    options: {
+        skipHtmlTags: [
+            'script',
+            'noscript',
+            'style',
+            'textarea',
+            'pre',
+            'code'
+        ]
+    }
+};
+</script>
+
+<!-- MathJax library -->
+<script
+    async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+</head>
+
+
+
+<body>
+
+<div class="app">
+
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="logo">Σ</div>
+
+            <div>
+                <h2>LA Tutor</h2>
+                <p>AI Teaching Assistant</p>
+            </div>
+
+        </div>
+
+
+        <button class="new-chat"
+                onclick="newChat()">
+
+            + New Chat
+
+        </button>
+
+
+        <div class="label">
+            LEARN
+        </div>
+
+
+        <button onclick="ask('I know nothing about Linear Algebra. Teach me from the beginning.')">
+            🎓 Start from Zero
+        </button>
+
+
+        <button onclick="ask('Explain vectors from the beginning with an easy example.')">
+            → Vectors
+        </button>
+
+
+        <button onclick="ask('Teach me matrices and matrix multiplication step by step.')">
+            ▦ Matrices
+        </button>
+
+
+        <button onclick="ask('Teach me Gaussian elimination with a complete worked example.')">
+            ⌗ Gaussian Elimination
+        </button>
+
+
+        <button onclick="ask('Explain vector spaces, basis and dimension.')">
+            ◇ Vector Spaces
+        </button>
+
+
+        <button onclick="ask('Explain linear independence with numerical examples.')">
+            ↔ Linear Independence
+        </button>
+
+
+        <button onclick="ask('Teach me eigenvalues and eigenvectors step by step.')">
+            λ Eigenvalues
+        </button>
+
+
+        <button onclick="ask('Explain Gram-Schmidt process with a solved example.')">
+            ⟂ Gram-Schmidt
+        </button>
+
+
+        <button onclick="ask('Explain least squares and normal equations.')">
+            ≈ Least Squares
+        </button>
+
+
+        <div class="bottom">
+
+            <span class="dot"></span>
+            AI Tutor Ready
+
+            <small>
+                Linear Algebra
+            </small>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main">
+
+
+        <header>
+
+            <div>
+
+                <h1>Linear Algebra</h1>
+
+                <p>
+                    Interactive AI Teaching Assistant
+                </p>
+
+            </div>
+
+            <span class="badge">
+                TEACHING MODE
+            </span>
+
+        </header>
+
+
+        <section
+            id="chat"
+            class="chat">
+
+
+            <div
+                id="welcome"
+                class="welcome">
+
+
+                <div class="big-logo">
+                    ∑
+                </div>
+
+
+                <h2>
+                    Learn Linear Algebra with AI
+                </h2>
+
+
+                <p>
+                    Ask questions, learn concepts,
+                    solve problems and prepare for exams.
+                </p>
+
+
+                <div class="cards">
+
+
+                    <button onclick="ask('I am a complete beginner. Teach me Linear Algebra from zero.')">
+
+                        <strong>
+                            🎓 Start Learning
+                        </strong>
+
+                        <span>
+                            Start from the basics
+                        </span>
+
+                    </button>
+
+
+                    <button onclick="ask('Explain eigenvalues and eigenvectors with an easy numerical example.')">
+
+                        <strong>
+                            λ Eigenvalues
+                        </strong>
+
+                        <span>
+                            Learn with examples
+                        </span>
+
+                    </button>
+
+
+                    <button onclick="ask('Give me a Gaussian elimination practice problem and guide me through it.')">
+
+                        <strong>
+                            🔢 Practice
+                        </strong>
+
+                        <span>
+                            Solve problems
+                        </span>
+
+                    </button>
+
+
+                    <button onclick="ask('Prepare me for a Linear Algebra viva. Ask me questions one at a time.')">
+
+                        <strong>
+                            🎤 Viva
+                        </strong>
+
+                        <span>
+                            Test your knowledge
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div
+            id="typing"
+            class="typing hidden">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+            LA Tutor is thinking...
+
+        </div>
+
+
+        <div class="input-area">
+
+            <textarea
+                id="message"
+                placeholder="Ask me anything about Linear Algebra..."
+                rows="1"></textarea>
+
+
+            <button
+                id="send"
+                onclick="sendMessage()">
+
+                ➤
+
+            </button>
+
+        </div>
+
+
+        <div class="hint">
+            Enter to send • Shift + Enter for new line
+        </div>
+
+
+    </main>
+
+</div>
+
+
+<script
+src="{{ url_for('static', filename='script.js') }}">
+</script>
+
+</body>
+
+</html>
